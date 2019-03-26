@@ -15,5 +15,5 @@
 #include <QSettings>
 #include <QFileInfo>
 #include <QStringList>
-#include <QApplication>
+//#include <QApplication>
 #include <QStandardPaths>
