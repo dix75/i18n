@@ -1,5 +1,6 @@
 #include <QCoreApplication>
-#include "finder.h"
+#include "classes/finder.h"
+#include "classes/app.h"
 
 void scanDir(QDir dir, QStringList const& filters = {{"*.h"}, {"*.cpp"}}) noexcept {
     dir.setNameFilters(filters);
@@ -22,8 +23,8 @@ void scanDir(QDir dir, QStringList const& filters = {{"*.h"}, {"*.cpp"}}) noexce
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    scanDir(QDir("/home/dix/projects/irondoom/projects/1/"));
+    //scanDir(QDir("/home/dix/projects/irondoom/projects/1/"));
+    scanDir(QDir("c:/projects/irondoom/projects/1/"));
 
     return 0;
-    //return a.exec();
 }

@@ -1,2 +1,3 @@
-# i18n
-Translate tool
+# theI18n
+
+The translate package

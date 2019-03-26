@@ -15,7 +15,7 @@
 /** \namespace i18n */
 namespace i18n {
 
-class Finder final {
+class Finder {
  public:
     using class_name = Finder;
     
@@ -23,11 +23,11 @@ class Finder final {
     uint m_id;
 
  public:
-    explicit Finder( id) noexcept 
-        : m_id(id){
-    }
-    virtual ~Finder() = default;
-    uint id() const noexcept {
+~Finder() = default;
+explicit Finder(uint id) noexcept
+    : m_id(id){
+}
+uint id() const noexcept {
     return m_id;
 }
 void setId(uint id) noexcept {
