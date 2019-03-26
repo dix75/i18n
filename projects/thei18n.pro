@@ -7,7 +7,9 @@ TEMPLATE            = app
 TARGET              = i18n
 PRECOMPILED_HEADER  = i18n_pch.h
 
-I18N_PATH           = $$PWD
+I18N_PATH           = $$PWD/i18n/
+CATCH_PATH          = $$PWD/catch2/
+UNQLITE_PATH        = $$PWD/unqlite/
 OUTPUT_PATH         = $$PWD/../../bin/qmake
 
 CONFIG             += c++1z console precompile_header
@@ -23,13 +25,15 @@ QMAKE_CXXFLAGS     += -DQT_NO_CAST_TO_ASCII        \
                       -DQT_USE_QSTRINGBUILDER      \
                       -DD_SCL_SECURE_NO_WARNINGS
 SOURCES += \
-    $$I18N_PATH/main.cpp \
+    main.cpp \
     $$I18N_PATH/classes/finder.cpp \
     $$I18N_PATH/classes/worker.cpp \
-    $$I18N_PATH/classes/app.cpp \
-    $$I18N_PATH/classes/list.cpp
+    $$I18N_PATH/classes/app.cpp    \
+    $$I18N_PATH/classes/list.cpp \
+    $$UNQLITE_PATH/unqlite.c
+
 HEADERS += \
     $$I18N_PATH/classes/finder.h \
     $$I18N_PATH/classes/worker.h \
-    c$$I18N_PATH/lasses/app.h \
-    c$$I18N_PATH/lasses/list.h
+    $$I18N_PATH/classes/app.h    \
+    $$I18N_PATH/classes/list.h

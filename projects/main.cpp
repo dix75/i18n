@@ -1,6 +1,7 @@
 #include <QCoreApplication>
-#include "classes/finder.h"
-#include "classes/app.h"
+#include <unqlite/unqlite.h>
+#include "i18n/classes/finder.h"
+#include "i18n/classes/app.h"
 
 void scanDir(QDir dir, QStringList const& filters = {{"*.h"}, {"*.cpp"}}) noexcept {
     dir.setNameFilters(filters);
@@ -22,6 +23,12 @@ void scanDir(QDir dir, QStringList const& filters = {{"*.h"}, {"*.cpp"}}) noexce
 
 int main(int argc, char *argv[])
 {
+    unqlite* pDb = nullptr;
+    auto rc = unqlite_open(&pDb, "test.db", UNQLITE_OPEN_CREATE);
+    if(rc != UNQLITE_OK)
+        return -1;
+    unqlite_close(pDb);
+
     QCoreApplication a(argc, argv);
     //scanDir(QDir("/home/dix/projects/irondoom/projects/1/"));
     scanDir(QDir("c:/projects/irondoom/projects/1/"));
