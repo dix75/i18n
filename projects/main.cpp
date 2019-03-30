@@ -1,5 +1,5 @@
 #include <QCoreApplication>
-#include <unqlite/unqlite.h>
+#include <rocksdb/db.h>
 #include "i18n/classes/finder.h"
 #include "i18n/classes/app.h"
 
@@ -23,11 +23,22 @@ void scanDir(QDir dir, QStringList const& filters = {{"*.h"}, {"*.cpp"}}) noexce
 
 int main(int argc, char *argv[])
 {
-    unqlite* pDb = nullptr;
-    auto rc = unqlite_open(&pDb, "test.db", UNQLITE_OPEN_CREATE);
-    if(rc != UNQLITE_OK)
-        return -1;
-    unqlite_close(pDb);
+    std::string kDBPath = "test.db";
+    rocksdb::DB* db = nullptr;
+    rocksdb::Options options;
+    // Optimize RocksDB. This is the easiest way to get RocksDB to perform well
+    options.IncreaseParallelism();
+    options.OptimizeLevelStyleCompaction();
+    // create the DB if it's not already present
+    options.create_if_missing = true;
+
+    // open DB
+    auto s = rocksdb::DB::Open(options, kDBPath, &db);
+    assert(s.ok());
+
+    // Put key-value
+    s = db->Put(rocksdb::WriteOptions(), "key1", "value");
+    assert(s.ok());
 
     QCoreApplication a(argc, argv);
     //scanDir(QDir("/home/dix/projects/irondoom/projects/1/"));
