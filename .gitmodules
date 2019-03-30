@@ -1,6 +1,6 @@
-[submodule "projects/unqlite"]
-	path = projects/unqlite
-	url = git@github.com:symisc/unqlite.git
 [submodule "projects/catch2"]
 	path = projects/catch2
 	url = https://github.com/catchorg/Catch2.git
+[submodule "projects/rocksdb"]
+	path = projects/rocksdb
+	url = https://github.com/facebook/rocksdb
