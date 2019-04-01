@@ -1,4 +1,5 @@
 #include <QCoreApplication>
+#include <cassert>
 #include <rocksdb/db.h>
 #include "i18n/classes/finder.h"
 #include "i18n/classes/app.h"
