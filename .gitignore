@@ -38,6 +38,7 @@ Makefile*
 *build-*
 .vs
 /out
+build/
 
 # QtCreator
 *.autosave
