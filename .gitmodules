@@ -4,3 +4,6 @@
 [submodule "projects/rocksdb"]
 	path = projects/rocksdb
 	url = https://github.com/facebook/rocksdb
+[submodule "google/snappy"]
+	path = google/snappy
+	url = git@github.com:google/snappy.git
