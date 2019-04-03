@@ -4,3 +4,6 @@
 [submodule "projects/snappy"]
 	path = projects/snappy
 	url = git@github.com:google/snappy.git
+[submodule "projects/ceasefire"]
+	path = projects/ceasefire
+	url = git@github.com:dix75/ceasefire.git

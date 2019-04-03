@@ -9,13 +9,11 @@ PRECOMPILED_HEADER  = i18n_pch.h
 
 I18N_PATH           = $$PWD/i18n/
 CATCH_PATH          = $$PWD/catch2/
-ROCKSDB_PATH        = $$PWD/rocksdb/include/
 OUTPUT_PATH         = $$PWD/../../bin/qmake
 
 CONFIG             += c++1z console precompile_header
 QMAKE_CXXFLAGS     += -Wall
-INCLUDEPATH        += . \
-                      $$ROCKSDB_PATH
+INCLUDEPATH        += .
 
 DEFINES            += QT_DEPRECATED_WARNINGS \
                       QT_DISABLE_DEPRECATED_BEFORE=0x060000
